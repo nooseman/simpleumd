@@ -14,7 +14,7 @@ def graphCSV(filename, size=(7,7)):
 	ax1.set_xlabel("Time [s]")
 	ax1.set_ylabel("Displacement [cm]")
 
-	ax1.plot(data['x'], data['y'], color='r--', label='Displacement')
+	ax1.plot(data['x'], data['y'], color='r', label='Displacement')
 	leg = ax1.legend()
 
 	plt.show()
@@ -28,9 +28,12 @@ def graphMatrix(matrix, size=(7,7)):
 	ax1.set_xlabel("Time [s]")
 	ax1.set_ylabel("Displacement [cm]")
 
+	print(matrix)
+	print(matrix.shape)
+
 	#remove erroneous first and last datapoints
 	matrix = np.delete(matrix, (0), axis=0)
-	matrix = np.delete(matrix, (matrix.shape[0] - 1), axis=0)
+	matrix = np.delete(matrix, (matrix.shape[1] - 1), axis=0)
 
 	ax1.plot(matrix[:,0], matrix[:,1], color='r', label='Displacement')
 	leg = ax1.legend()

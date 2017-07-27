@@ -8,7 +8,7 @@ cfg = {
 	'BAUD': 19200,
 	'FILENAME': 'data.csv',
 	'PORT': 'COM3',
-	'SAMPLE_SIZE': 100,
+	'SAMPLE_SIZE': 200,
 	'WAIT_TIME': 33.21
 }
 
@@ -16,8 +16,6 @@ def printcfg(s=''):
 	for key in cfg.keys():
 		print(key, ": ", cfg[key])
 	print(s)
-
-
 
 def initialize():
 
@@ -117,6 +115,7 @@ def collectToMatrix():
 					print(line.rstrip())
 					mat[i, 0] = int(line.rstrip().split(',')[0]) / 1000
 					mat[i, 1] = line.rstrip().split(',')[1]
+			print(mat[~(mat==0).all(1)])
 			return mat[~(mat==0).all(1)]
 		except PermissionError:
 			print("Cannot open " + cfg['FILENAME'] + ". Do you have it open?")
