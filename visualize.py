@@ -28,9 +28,6 @@ def graphMatrix(matrix, size=(7,7)):
 	ax1.set_xlabel("Time [s]")
 	ax1.set_ylabel("Displacement [cm]")
 
-	print(matrix)
-	print(matrix.shape)
-
 	#remove erroneous first and last datapoints
 	matrix = np.delete(matrix, (0), axis=0)
 	matrix = np.delete(matrix, (matrix.shape[1] - 1), axis=0)
